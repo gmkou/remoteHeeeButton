@@ -1,11 +1,22 @@
 <html>
 <head>
 <script src="http://10.0.1.2:8888/socket.io/socket.io.js"></script>
+<style>
+#up {position:absolute; top:0px; left:100px; width:100px; height:100px;}
+#down {position:absolute; top:200px; left:100px; width:100px; height:100px;}
+#right {position:absolute; top:100px; left:200px; width:100px; height:100px;}
+#left {position:absolute; top:100px; left:0px; width:100px; height:100px;}
+#go {position:absolute; top:100px; left:100px; width:100px; height:100px;}
+</style>
 </head>
 <body>
 
-<button onclick="hit();" style="height:300px;width:300px">click me to play sound other device.</button>
-<audio id="hit" src="hele.wav"></audio>
+<button	id="up" onclick="up();" >Up</button>
+<button id="down" onclick="down();" >Down</button>
+<button id="right" onclick="right();" >Right</button>
+<button id="left" onclick="left();" >Left</button>
+<p>
+<button id="go" onclick="go();" >Go!</button>
 
 <div id="disp"><div></div></div>
 
@@ -15,9 +26,11 @@ socket.on('myevent', function (data) {
     document.getElementById("hit").play();
 });
 
-function hit(){
-    socket.emit('myevent', "hit");
-}
+function up(){ socket.emit('myevent', "up"); }
+function down(){ socket.emit('myevent', "down"); }
+function right(){ socket.emit('myevent', "right"); }
+function left(){ socket.emit('myevent', "left"); }
+function go(){ socket.emit('myevent', "Go!"); }
 </script>
 
 </body></html>

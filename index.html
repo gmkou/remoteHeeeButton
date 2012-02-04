@@ -7,14 +7,13 @@
 
 <audio id="hit" src="hele.wav"></audio>
 
-<div id="disp" style="font-size:300%">0へえ<div>
+<div id="disp" style="font-size:300%">[PressButton]<div>
 
 <script>
 var socket = io.connect('http://10.0.1.2:8888');
 
 socket.on('myevent', function (data) {
-    document.getElementById("hit").play();
-    document.getElementById("disp").innerHTML = count() + "へえ";
+    document.getElementById("disp").innerHTML = data ;
 });
 
 function counter(){
