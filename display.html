@@ -10,7 +10,7 @@
 <div id="disp" style="font-size:300%">[PressButton]<div>
 
 <script>
-var socket = io.connect('http://10.0.1.2:8888');
+var socket = io.connect('/');
 
 socket.on('myevent', function (data) {
     document.getElementById("disp").innerHTML = data ;

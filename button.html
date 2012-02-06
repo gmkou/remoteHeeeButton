@@ -21,7 +21,7 @@
 <div id="disp"><div></div></div>
 
 <script>
-var socket = io.connect('http://10.0.1.2:8888');
+var socket = io.connect('/');
 socket.on('myevent', function (data) {
     document.getElementById("hit").play();
 });
