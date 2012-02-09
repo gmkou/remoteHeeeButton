@@ -1,4 +1,3 @@
-var sys = require('sys');
 var app = require('express').createServer();
 var io = require('socket.io').listen(app);
 
@@ -22,4 +21,13 @@ io.sockets.on('connection', function (socket) {
     });
 });
 
-sys.log("server running at " + PORT);
+var nic = 'en0';
+var os=require('os');
+var ifaces=os.networkInterfaces();
+ifaces[nic].forEach(function(details){
+    if (details.family=='IPv4') {
+        console.log("server running at " + details.address + ":" +PORT);
+    }
+});
+
+
