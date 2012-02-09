@@ -1,7 +1,9 @@
+var sys = require('sys');
 var app = require('express').createServer();
 var io = require('socket.io').listen(app);
 
-app.listen(8888);
+var PORT = 8888;
+app.listen(PORT);
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
@@ -19,3 +21,5 @@ io.sockets.on('connection', function (socket) {
 	socket.broadcast.emit('myevent', data); 
     });
 });
+
+sys.log("server running at " + PORT);
