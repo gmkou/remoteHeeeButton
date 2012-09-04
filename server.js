@@ -1,8 +1,11 @@
-var app = require('express').createServer();
-var io = require('socket.io').listen(app);
+var express = require('express')
+var app = express()
+  , http = require('http')
+  , server = http.createServer(app)
+  , io = require('socket.io').listen(server)
 
 var PORT = 8888;
-app.listen(PORT);
+server.listen(PORT);
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
@@ -16,18 +19,7 @@ app.get('/display', function (req, res) {
 
 io.sockets.on('connection', function (socket) {
     socket.on('myevent', function (data) {
-	socket.emit('myevent', data);
-	socket.broadcast.emit('myevent', data); 
+        socket.emit('myevent', data);
+        socket.broadcast.emit('myevent', data);
     });
 });
-
-var nic = 'en0';
-var os=require('os');
-var ifaces=os.networkInterfaces();
-ifaces[nic].forEach(function(details){
-    if (details.family=='IPv4') {
-        console.log("server running at " + details.address + ":" +PORT);
-    }
-});
-
-
