@@ -26,10 +26,10 @@ socket.on('myevent', function (data) {
     document.getElementById("hit").play();
 });
 
-function up(){ socket.emit('myevent', "up"); }
-function down(){ socket.emit('myevent', "down"); }
-function right(){ socket.emit('myevent', "right"); }
-function left(){ socket.emit('myevent', "left"); }
+function up(){ socket.emit('myevent', "↑"); }
+function down(){ socket.emit('myevent', "↓"); }
+function right(){ socket.emit('myevent', "→"); }
+function left(){ socket.emit('myevent', "←"); }
 function go(){ socket.emit('myevent', "Go!"); }
 </script>
 
