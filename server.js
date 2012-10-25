@@ -22,4 +22,8 @@ io.sockets.on('connection', function (socket) {
         socket.emit('myevent', data);
         socket.broadcast.emit('myevent', data);
     });
+    socket.on('urlevent', function (data) {
+        socket.emit('urlevent', data);
+        socket.broadcast.emit('urlevent', data);
+    });
 });

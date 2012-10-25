@@ -8,12 +8,16 @@
 <audio id="hit" src="hele.wav"></audio>
 
 <div id="disp" style="font-size:300%">[PressButton]</div>
+<img id="img" src="">
 
 <script>
 var socket = io.connect('/');
 
 socket.on('myevent', function (data) {
     document.getElementById("disp").innerHTML = data ;
+});
+socket.on('urlevent', function (data) {
+    document.getElementById("img").src = data ;
 });
 
 function counter(){

@@ -17,6 +17,7 @@
 <button id="left" onclick="left();" >←</button>
 <p>
 <button id="go" onclick="go();" >Go!</button>
+<button id="urlevent" onclick="urlvent();" >access</button>
 
 <div id="disp"><div></div></div>
 
@@ -31,6 +32,8 @@ function down(){ socket.emit('myevent', "↓"); }
 function right(){ socket.emit('myevent', "→"); }
 function left(){ socket.emit('myevent', "←"); }
 function go(){ socket.emit('myevent', "Go!"); }
+
+function urlevent(){ socket.emit('urlevent', "http://jp.access-company.com/files/2012/06/feature.jpg"); }
 </script>
 
 </body></html>
